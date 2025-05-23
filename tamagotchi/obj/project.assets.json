@@ -8,19 +8,19 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\Carolina\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\OneDrive\\Escritorio\\UPB\\Tercer Semestre\\Paradigmas\\tamagotchi\\tamagotchi\\tamagotchi.csproj",
+      "projectUniqueName": "C:\\Users\\Carolina\\OneDrive - UPB\\PARADIGMAS DE PROGRAMACIÓN\\Proyecto_tamagotchi\\tamagotchi\\tamagotchi.csproj",
       "projectName": "tamagotchi",
-      "projectPath": "C:\\Users\\User\\OneDrive\\Escritorio\\UPB\\Tercer Semestre\\Paradigmas\\tamagotchi\\tamagotchi\\tamagotchi.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\OneDrive\\Escritorio\\UPB\\Tercer Semestre\\Paradigmas\\tamagotchi\\tamagotchi\\obj\\",
+      "projectPath": "C:\\Users\\Carolina\\OneDrive - UPB\\PARADIGMAS DE PROGRAMACIÓN\\Proyecto_tamagotchi\\tamagotchi\\tamagotchi.csproj",
+      "packagesPath": "C:\\Users\\Carolina\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Carolina\\OneDrive - UPB\\PARADIGMAS DE PROGRAMACIÓN\\Proyecto_tamagotchi\\tamagotchi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Carolina\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -65,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
