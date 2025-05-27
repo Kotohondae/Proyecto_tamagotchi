@@ -4,7 +4,6 @@ namespace tamagochi.Clases
     {
         public static void MostrarEstado(Universitario u)
         {
-            Console.Clear();
             Console.WriteLine("═════════════════════════════════════");
             Console.WriteLine("        ESTADO DEL UNIVERSITARIO     ");
             Console.WriteLine("═════════════════════════════════════");
