@@ -33,7 +33,11 @@ namespace tamagochi.Clases
                             uni.ComerLigero();
                             uni.ProcesarAccion("Alimentación", uni.Retos.RetosAlimentacion);
                         }
-                        else if (tipoComida == "2") uni.ComerCompleto();
+                        else if (tipoComida == "2") 
+                        {
+                            uni.ComerCompleto();
+                            uni.ProcesarAccion("Alimentación", uni.Retos.RetosAlimentacion);
+                        }
                         else Console.WriteLine("Opción inválida.");
                         break;
 
@@ -42,7 +46,11 @@ namespace tamagochi.Clases
                         Console.WriteLine("2. Dormir completo");
                         Console.Write("Elige tipo de descanso: ");
                         string tipoSueño = Console.ReadLine() ?? "";
-                        if (tipoSueño == "1") uni.DormirSiesta();
+                        if (tipoSueño == "1") 
+                        {
+                            uni.DormirSiesta();
+                            uni.ProcesarAccion("Dormir", uni.Retos.RetosDormir);
+                        }
                         else if (tipoSueño == "2")
                         {
                             uni.Dormir();
@@ -62,7 +70,11 @@ namespace tamagochi.Clases
                             uni.Estudiar();
                             uni.ProcesarAccion("Estudiar", uni.Retos.RetosEstudio);
                         }
-                        else if (tipoEstudio == "2") uni.EstudiarEnGrupo();
+                        else if (tipoEstudio == "2") 
+                        {
+                            uni.EstudiarEnGrupo();
+                            uni.ProcesarAccion("Estudiar", uni.Retos.RetosEstudio);
+                        }
                         else Console.WriteLine("Opción inválida.");
                         break;
 
@@ -76,11 +88,20 @@ namespace tamagochi.Clases
                             uni.Trabajar();
                             uni.ProcesarAccion("Trabajar", uni.Retos.RetosTrabajo);
                         }
-                        else if (tipoTrabajo == "2") uni.TrabajoEspecial();
-                                else Console.WriteLine("Opción inválida.");
+                        else if (tipoTrabajo == "2") 
+                        {
+                            uni.Trabajar();uni.TrabajoEspecial();
+                            uni.ProcesarAccion("Trabajar", uni.Retos.RetosTrabajo);
+                        }
+                        else Console.WriteLine("Opción inválida.");
                         break;
 
-                    case "5": uni.Socializar(); break;
+                    case "5":
+                        {
+                            uni.Socializar();
+                            uni.ManejarSocializacion();
+                        }
+                        break;
                     case "6": MostrarHistorial(uni); break;
                     case "7": MostrarPicosEstres(uni); break;
                     case "8":

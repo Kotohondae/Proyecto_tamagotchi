@@ -74,7 +74,7 @@ namespace tamagochi.Clases
             }
         }
 
-        private void ManejarSocializacion()
+        public void ManejarSocializacion()
         {
             if (Carrera == "Ingeniero")
                 Console.WriteLine("¡¿Y quién mantendrá el código?!");
@@ -111,10 +111,7 @@ namespace tamagochi.Clases
             deuda = Math.Max(0, deuda + estadoDeuda);
             nivelEstudio = Math.Clamp(nivelEstudio + estadoNivelEstudio, 0, 100);
 
-            var registro = new Registro(accion, hambre, sueno, estres, deuda);
-            historial.Add(registro);
-
-            Console.WriteLine($"Acción: {registro.Accion} | H={registro.Hambre} S={registro.Sueno} E={registro.Estres} D={registro.Deuda:C} N.E={nivelEstudio}");
+            Console.WriteLine($"Acción: {accion} | H={hambre} S={sueno} E={estres} D={deuda:C} N.E={nivelEstudio}");
         }
 
         public virtual void ComerLigero()
@@ -172,17 +169,17 @@ namespace tamagochi.Clases
         public IEnumerable<Registro> ConsultarHistorial(Func<Registro, bool> filtro) => historial.Where(filtro);
         
         public string CaritaEstado 
-    {
-        get
         {
-            int bienestar = (100 - hambre + 100 - sueno + 100 - estres) / 3;
-            return bienestar switch
+            get
             {
-                < 30 => ":(",
-                < 70 => ":|",
-                _ => ":)"
-            };
+                int bienestar = (100 - hambre + 100 - sueno + 100 - estres) / 3;
+                return bienestar switch
+                {
+                    < 30 => ":(",
+                    < 70 => ":|",
+                    _ => ":)"
+                };
+            }
         }
-    }
     }    
 }
