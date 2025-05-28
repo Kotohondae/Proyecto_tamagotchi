@@ -23,7 +23,7 @@ namespace tamagochi.Clases
                     JugarDecision();
                     break;
                 default:
-                    Console.WriteLine("❌ Minijuego no encontrado.");
+                    Console.WriteLine(" Minijuego no encontrado.");
                     break;
             }
         }
@@ -36,13 +36,13 @@ namespace tamagochi.Clases
 
             if (respuesta == "B")
             {
-                Console.WriteLine("✅ ¡Correcto! +10 estudio");
+                Console.WriteLine(" ¡Correcto! +10 estudio");
                 jugador.ActualizarEstado(0, 0, 0, 0, "Trivia", 10);
                 LogrosManager.VerificarLogroMinijuego("TRIVIA");
             }
             else
             {
-                Console.WriteLine("❌ Incorrecto. +5 estrés");
+                Console.WriteLine(" Incorrecto. +5 estrés");
                 jugador.ActualizarEstado(0, 0, 5, 0, "Trivia");
             }
         }
@@ -68,13 +68,13 @@ namespace tamagochi.Clases
 
                 if (entrada == secuenciaString)
                 {
-                    Console.WriteLine("✅ ¡Correcto! -5 estrés");
+                    Console.WriteLine(" ¡Correcto! -5 estrés");
                     jugador.ActualizarEstado(0, 0, -5, 0, "Memoria");
                     LogrosManager.VerificarLogroMinijuego("MEMORIA");
 
                     if (secuencia.Count == 10)
                     {
-                        Console.WriteLine("🎉 ¡Ganaste! Has memorizado la secuencia máxima.");
+                        Console.WriteLine(" ¡Ganaste! Has memorizado la secuencia máxima.");
                         break;
                     }
 
@@ -88,7 +88,7 @@ namespace tamagochi.Clases
                 }
                 else
                 {
-                    Console.WriteLine("❌ Fallaste. +5 estrés");
+                    Console.WriteLine(" Fallaste. +5 estrés");
                     jugador.ActualizarEstado(0, 0, 5, 0, "Memoria");
                     Console.WriteLine($"La secuencia correcta era: {secuenciaString}");
                     break;

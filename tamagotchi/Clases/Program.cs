@@ -1,4 +1,4 @@
-﻿﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -137,7 +137,7 @@ namespace tamagochi.Clases
         private static void MostrarMenu()
         {
             Console.WriteLine("\n==============================");
-            Console.WriteLine($"🎓 Tamagochi universitario");
+            Console.WriteLine($" Tamagochi universitario");
             Console.WriteLine("==============================\n");
             Console.WriteLine("--- Menú de Acciones ---");
             Console.WriteLine("1. Alimentar");
@@ -175,18 +175,18 @@ namespace tamagochi.Clases
         static void MostrarResumenFinal(Universitario u)
         {
             Console.Clear();
-            Console.WriteLine("🎓 FIN DEL JUEGO 🎓");
+            Console.WriteLine(" FIN DEL JUEGO ");
             Console.WriteLine("----------------------------");
 
-            Console.WriteLine($"🎓 Carrera: {u.Carrera}");
-            Console.WriteLine($"📅 Días jugados: {RelojInterno.DiaActual}");
+            Console.WriteLine($" Carrera: {u.Carrera}");
+            Console.WriteLine($" Días jugados: {RelojInterno.DiaActual}");
 
-            Console.WriteLine($"\n📘 Nivel de estudio: {u.NivelEstudio}/100");
-            Console.WriteLine($"😵 Nivel de estrés: {u.Estres}/100");
-            Console.WriteLine($"💸 Deuda restante: ${u.Deuda}");
+            Console.WriteLine($"\n Nivel de estudio: {u.NivelEstudio}/100");
+            Console.WriteLine($" Nivel de estrés: {u.Estres}/100");
+            Console.WriteLine($" Deuda restante: ${u.Deuda}");
 
             List<string> logros = LogrosManager.logros;
-            Console.WriteLine("🏆 Logros desbloqueados:");
+            Console.WriteLine(" Logros desbloqueados:");
             if (logros.Any())
             {
                 foreach (string logro in logros)
@@ -197,15 +197,15 @@ namespace tamagochi.Clases
                 Console.WriteLine("   (Ninguno)");
             }
 
-            Console.WriteLine("\n📋 Resultado Final:");
+            Console.WriteLine("\n Resultado Final:");
             if (u.NivelEstudio >= 80 && u.Estres <= 30)
-                Console.WriteLine("🎉 ¡Felicidades! Te graduaste con honores.");
+                Console.WriteLine(" ¡Felicidades! Te graduaste con honores.");
             else if (u.NivelEstudio >= 60)
-                Console.WriteLine("✅ Aprobaste con esfuerzo. ¡Buen trabajo!");
+                Console.WriteLine(" Aprobaste con esfuerzo. ¡Buen trabajo!");
             else if (u.NivelEstudio >= 40)
-                Console.WriteLine("😬 Aprobaste raspando... pero lo lograste.");
+                Console.WriteLine(" Aprobaste raspando... pero lo lograste.");
             else
-                Console.WriteLine("📉 No alcanzaste el nivel necesario. Tendrás que repetir el semestre.");
+                Console.WriteLine(" No alcanzaste el nivel necesario. Tendrás que repetir el semestre.");
 
             Console.WriteLine("\nGracias por jugar. Presiona cualquier tecla para salir...");
             Console.ReadKey();

@@ -5,13 +5,13 @@ namespace tamagochi.Clases
         public static void MostrarEstado(Universitario u)
         {
             Console.WriteLine("═════════════════════════════════════");
-        Console.WriteLine($"   ESTADO DEL UNIVERSITARIO {u.CaritaEstado}"); // Cambio aquí
+        Console.WriteLine($"   ESTADO DEL UNIVERSITARIO {u.CaritaEstado}"); 
         Console.WriteLine("═════════════════════════════════════");
         ImprimirBarra("Hambre", u.Hambre);
         ImprimirBarra("Sueno", u.Sueno);
         ImprimirBarra("Estres", u.Estres);
         ImprimirBarra("Estudio", u.NivelEstudio);
-        Console.WriteLine($"Deuda: ${u.Deuda}"); // Eliminar emoji
+        Console.WriteLine($"Deuda: ${u.Deuda}"); 
         Console.WriteLine("═════════════════════════════════════");
         }
 

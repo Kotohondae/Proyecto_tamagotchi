@@ -6,22 +6,22 @@ public static class LogrosManager
 
         public static void VerificarLogros(Universitario u)
         {
-            if (u.NivelEstudio >= 70 && !logros.Contains("🧠 Estudioso"))
+            if (u.NivelEstudio >= 70 && !logros.Contains(" Estudioso"))
             {
-                logros.Add("🧠 Estudioso");
-                Console.WriteLine("🎉 Logro desbloqueado: 🧠 Estudioso (Nivel de estudio >= 70)");
+                logros.Add(" Estudioso");
+                Console.WriteLine("🎉 Logro desbloqueado:  Estudioso (Nivel de estudio >= 70)");
             }
 
-            if (u.Deuda <= 0 && !logros.Contains("💰 Sin Deudas"))
+            if (u.Deuda <= 0 && !logros.Contains(" Sin Deudas"))
             {
-                logros.Add("💰 Sin Deudas");
-                Console.WriteLine("🎉 Logro desbloqueado: 💰 Sin Deudas (Has saldado tu deuda)");
+                logros.Add(" Sin Deudas");
+                Console.WriteLine(" Logro desbloqueado:  Sin Deudas (Has saldado tu deuda)");
             }
 
-            if (u.ConsultarHistorial(r => r.Estres >= 90).Any() && !logros.Contains("😵 Al Límite"))
+            if (u.ConsultarHistorial(r => r.Estres >= 90).Any() && !logros.Contains(" Al Límite"))
             {
-                logros.Add("😵 Al Límite");
-                Console.WriteLine("🎉 Logro desbloqueado: 😵 Al Límite (Estrés ≥ 90)");
+                logros.Add(" Al Límite");
+                Console.WriteLine(" Logro desbloqueado:  Al Límite (Estrés ≥ 90)");
             }
         }
 
@@ -30,24 +30,24 @@ public static class LogrosManager
             switch (id)
             {
                 case "TRIVIA":
-                    if (!logros.Contains("🧠 Maestro de Trivia"))
+                    if (!logros.Contains(" Maestro de Trivia"))
                     {
-                        logros.Add("🧠 Maestro de Trivia");
-                        Console.WriteLine("🎉 Logro desbloqueado: 🧠 Maestro de Trivia (Respondiste bien una trivia)");
+                        logros.Add(" Maestro de Trivia");
+                        Console.WriteLine(" Logro desbloqueado:  Maestro de Trivia (Respondiste bien una trivia)");
                     }
                     break;
                 case "MEMORIA":
-                    if (!logros.Contains("🧩 Memoria de Acero"))
+                    if (!logros.Contains(" Memoria de Acero"))
                     {
-                        logros.Add("🧩 Memoria de Acero");
-                        Console.WriteLine("🎉 Logro desbloqueado: 🧩 Memoria de Acero (Recordaste la secuencia)");
+                        logros.Add(" Memoria de Acero");
+                        Console.WriteLine(" Logro desbloqueado:  Memoria de Acero (Recordaste la secuencia)");
                     }
                     break;
                 case "DECISION":
-                    if (!logros.Contains("🎯 Decisión Sabia"))
+                    if (!logros.Contains(" Decisión Sabia"))
                     {
-                        logros.Add("🎯 Decisión Sabia");
-                        Console.WriteLine("🎉 Logro desbloqueado: 🎯 Decisión Sabia (Elegiste estudiar en lugar de la fiesta)");
+                        logros.Add(" Decisión Sabia");
+                        Console.WriteLine(" Logro desbloqueado:  Decisión Sabia (Elegiste estudiar en lugar de la fiesta)");
                     }
                     break;
             }
@@ -55,7 +55,7 @@ public static class LogrosManager
 
         public static void MostrarLogros()
         {
-            Console.WriteLine("\n🏅 Logros desbloqueados:");
+            Console.WriteLine("\n Logros desbloqueados:");
             foreach (var logro in logros)
             {
                 Console.WriteLine("- " + logro);
