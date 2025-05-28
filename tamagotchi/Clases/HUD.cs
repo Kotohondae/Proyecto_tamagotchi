@@ -5,14 +5,14 @@ namespace tamagochi.Clases
         public static void MostrarEstado(Universitario u)
         {
             Console.WriteLine("═════════════════════════════════════");
-            Console.WriteLine("        ESTADO DEL UNIVERSITARIO     ");
-            Console.WriteLine("═════════════════════════════════════");
-            ImprimirBarra("Hambre", u.Hambre);
-            ImprimirBarra("Sueño", u.Sueno);
-            ImprimirBarra("Estrés", u.Estres);
-            ImprimirBarra("Estudio", u.NivelEstudio);
-            Console.WriteLine($"💰 Deuda: ${u.Deuda}");
-            Console.WriteLine("═════════════════════════════════════");
+        Console.WriteLine($"   ESTADO DEL UNIVERSITARIO {u.CaritaEstado}"); // Cambio aquí
+        Console.WriteLine("═════════════════════════════════════");
+        ImprimirBarra("Hambre", u.Hambre);
+        ImprimirBarra("Sueno", u.Sueno);
+        ImprimirBarra("Estres", u.Estres);
+        ImprimirBarra("Estudio", u.NivelEstudio);
+        Console.WriteLine($"Deuda: ${u.Deuda}"); // Eliminar emoji
+        Console.WriteLine("═════════════════════════════════════");
         }
 
         private static void ImprimirBarra(string nombre, int valor)

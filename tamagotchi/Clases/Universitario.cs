@@ -1,6 +1,6 @@
 namespace tamagochi.Clases
 {
-public abstract class Universitario
+    public abstract class Universitario
     {
         public readonly Random random = new Random();
         private readonly HashSet<int> umbralesAlcanzados = new HashSet<int>();
@@ -19,7 +19,7 @@ public abstract class Universitario
 
         private int Bienestar => (100 - hambre + 100 - sueno + 100 - estres) / 3;
         private readonly int[] umbralesBienestar = { 5, 10, 15, 30, 60, 90, 100 };
- 
+
         public int Hambre => hambre;
         public int Sueno => sueno;
         public int Estres => estres;
@@ -37,7 +37,7 @@ public abstract class Universitario
             historial.Add(new Registro(nombreAccion, hambre, sueno, estres, deuda));
             VerificarUmbralesBienestar();
         }
- 
+
         private bool ValidarRestriccionCarrera(string accion)
         {
             if (Carrera == "Filósofo" && accion == "Dormir")
@@ -45,22 +45,22 @@ public abstract class Universitario
                 Console.WriteLine("✖ El insomnio filosófico te mantiene despierto...");
                 return true;
             }
-           
+
             if (Carrera == "Artista" && accion == "Alimentación")
             {
                 Console.WriteLine("✖ ¿Comida orgánica? Tu billetera llora...");
                 return true;
             }
-           
+
             if (Carrera == "Médico" && accion == "Socializar")
             {
                 Console.WriteLine("✖ Tus pacientes necesitan atención constante...");
                 return true;
             }
-           
+
             return false;
         }
- 
+
         private void VerificarUmbralesBienestar()
         {
             foreach (int umbral in umbralesBienestar)
@@ -73,23 +73,23 @@ public abstract class Universitario
                 }
             }
         }
-        
+
         private void ManejarSocializacion()
         {
             if (Carrera == "Ingeniero")
                 Console.WriteLine("¡¿Y quién mantendrá el código?!");
- 
+
             Console.WriteLine($"1. {SocializarDescripcion1}");
             Console.WriteLine($"2. {SocializarDescripcion2}");
             Console.Write("Elige: ");
-           
+
             var opcion = Console.ReadLine();
             if (opcion == "1") SocializarOpcion1();
             else if (opcion == "2") SocializarOpcion2();
         }
 
         public abstract void SocializarOpcion1();
-        public abstract void SocializarOpcion2(); 
+        public abstract void SocializarOpcion2();
         private void MostrarComentario(int umbral)
         {
             List<string> comentarios = Bienestar switch
@@ -117,24 +117,72 @@ public abstract class Universitario
             Console.WriteLine($"Acción: {registro.Accion} | H={registro.Hambre} S={registro.Sueno} E={registro.Estres} D={registro.Deuda:C} N.E={nivelEstudio}");
         }
 
-        public virtual void ComerLigero() => ActualizarEstado(+10, 0, +2, -10, "Comida ligera");
-        public virtual void ComerCompleto() => ActualizarEstado(+30, 0, +8, -50, "Comida completa");
+        public virtual void ComerLigero()
+        {
+            Animaciones.EsperarConPuntos("Comiendo ligero");
+            ActualizarEstado(+10, 0, +2, -10, "Comida ligera");
+        }
+        public virtual void ComerCompleto()
+        {
+            Animaciones.EsperarConPuntos("Comiendo completo");
+            ActualizarEstado(+30, 0, +8, -50, "Comida completa");
+        }
 
         // Aquí se avanza el día cada vez que se duerme un sueño completo
         public virtual void Dormir()
         {
+            Animaciones.EsperarConPuntos("Durmiendo");
             ActualizarEstado(0, -30, -10, 0, "Dormir");
             RelojInterno.AvanzarDia();
             EventosManager.VerificarEventoCada3Dias(this);
         }
 
-        public virtual void DormirSiesta() => ActualizarEstado(0, -20, 0, 0, "Dormir siesta (genérico)");
-        public virtual void Estudiar() => ActualizarEstado(+10, +10, +20, -50, "Estudiar", +10);
-        public virtual void EstudiarEnGrupo() => ActualizarEstado(+15, +5, +10, -30, "Estudiar en grupo", +5);
-        public virtual void Trabajar() => ActualizarEstado(+5, +5, +5, -200, "Trabajo medio tiempo");
-        public virtual void Socializar() => ActualizarEstado(-5, +5, -15, 0, "Socializar");
-        public virtual void TrabajoEspecial() => ActualizarEstado(-5, +5, -15, 0, "Trabajo especial");
+        public virtual void DormirSiesta()
+        {
+            Animaciones.EsperarConPuntos("Tomando siesta");
+            ActualizarEstado(0, -20, -5, 0, "Siesta");
+        }
+        public virtual void Estudiar()
+        {
+            Animaciones.EsperarConPuntos("Estudiando");
+            ActualizarEstado(+10, +10, +20, -50, "Estudiar", +10);
+        }
+        public virtual void EstudiarEnGrupo()
+        {
+            Animaciones.EsperarConPuntos("Estudiando en grupo");
+            ActualizarEstado(+15, +5, +10, -30, "Estudio grupal", +5);
+        }
+        public virtual void Trabajar()
+        {
+            Animaciones.EsperarConPuntos("Trabajando");
+            ActualizarEstado(+5, +5, +5, -200, "Trabajar");
+        }
+        public virtual void Socializar()
+        {
+            Animaciones.EsperarConPuntos("Socializando");
+            ActualizarEstado(-5, +5, -15, 0, "Socializar");
+        }
+
+        public virtual void TrabajoEspecial()
+        {
+            Animaciones.EsperarConPuntos("Trabajando");
+            ActualizarEstado(-5, +5, -15, 0, "Trabajo especial");
+        }
 
         public IEnumerable<Registro> ConsultarHistorial(Func<Registro, bool> filtro) => historial.Where(filtro);
+        
+        public string CaritaEstado 
+    {
+        get
+        {
+            int bienestar = (100 - hambre + 100 - sueno + 100 - estres) / 3;
+            return bienestar switch
+            {
+                < 30 => ":(",
+                < 70 => ":|",
+                _ => ":)"
+            };
+        }
+    }
     }    
 }
