@@ -64,4 +64,52 @@ Cada carrera tiene sus propios retos y restricciones. Por ejemplo, los filósofo
 - El HUD muestra valores "positivos" (inverso de hambre, sueño, estrés).
 - El juego incluye un sistema básico de logros y registro de historial.
 
+---
 
+## 🧠 Programacion orientada a objetos (POO)
+
+En este proyecto se aplicó POO para hacer un sistema mas ordenado y realista.  
+Se utilizaron **clases**, **herencia**, **polimorfismo**, **encapsulamiento** y **composicion**.
+
+- Se creo una clase `Universitario` abstracta que tiene lo basico de un estudiante (hambre, sueño, estres, deuda, etc).  
+  De ahi heredan las carreras como `Ingeniero`, `Filosofo`, `Medico` y `Artista`.
+
+- Cada carrera sobreescribe metodos como `Dormir`, `Estudiar`, `TrabajoEspecial`, `SocializarOpcion1`, etc.  
+  Eso nos deja aplicar el **polimorfismo** para que cada uno actue distinto aunque tengan los mismos metodos.
+
+- Usamos **propiedades** para acceder a los atributos sin que se puedan modificar directamente, asi se mantiene encapsulado.
+
+- Tambien usamos **composicion** con `RetosManager`, que es parte interna del `Universitario`,  
+  y **agregacion** con la lista de `Registro` para guardar las acciones que hizo el jugador.
+
+- Hay varias clases **estaticas** como `HUD`, `Animaciones`, `EventosManager`, `LogrosManager`, etc que ayudan en distintas partes sin necesidad de instanciar.
+
+---
+
+## 💡 Uso de LINQ
+
+En varias partes del proyecto se uso **LINQ** para consultar listas de forma mas facil y elegante.
+
+- Por ejemplo en `Program.cs` se usa para ver si hubo estres alto:
+  ```csharp
+  var picos = u.ConsultarHistorial(r => r.Estres >= 70);
+  if (!picos.Any()) ...
+  ```
+
+- En `LogrosManager` para desbloquear logros:
+  ```csharp
+  if (u.ConsultarHistorial(r => r.Estres >= 90).Any() && !logros.Contains(" Al Límite"))
+  ```
+
+- En `Universitario` hicimos el metodo:
+  ```csharp
+  public IEnumerable<Registro> ConsultarHistorial(Func<Registro, bool> filtro) =>
+      historial.Where(filtro);
+  ```
+
+- Eso permite filtrar el historial segun condiciones y nos deja evitar loops grandes o codigo repetido.  
+  Es mas claro, y se usa junto con expresiones lambda (`r => r.Condicion`).
+
+---
+
+No es un proyecto perfecto pero se organizó bien el codigo y se aplicaron varias cosas de POO que ayudan a escalarlo o modificarlo facil despues.
