@@ -109,6 +109,12 @@ En varias partes del proyecto se uso **LINQ** para consultar listas de forma mas
 
 - Eso permite filtrar el historial segun condiciones y nos deja evitar loops grandes o codigo repetido.  
   Es mas claro, y se usa junto con expresiones lambda (`r => r.Condicion`).
+---
+## Reflexión 
+
+- Con este proyecto vimos en la práctica todo lo que aprendimos en clase: al principio costó un montón estructurar el programa desde cero, así que arrancamos con lo más básico, probamos cada paso y, poco a poco, fueron surgiendo nuevas ideas que fuimos sumando hasta llegar a un resultado que nos dejó satisfechos.
+- Lo más complicado fue encajar todas las clases e ideas para que todo funcionara de forma coherente, y encima tuvimos problemas con VS Code que nos hicieron perder tiempo. Al final, esas complicaciones nos obligaron a buscar soluciones y terminamos aprendiendo mucho más de lo que creíamos.
+- Fue un programa interesante de estructurar y al final nos sentimos orgullosos del resultado final de nuestro proyecto.
 
 ---
 
