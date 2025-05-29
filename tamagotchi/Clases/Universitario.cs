@@ -116,19 +116,16 @@ namespace tamagochi.Clases
 
         public virtual void ComerLigero()
         {
-            Animaciones.EsperarConPuntos("Comiendo ligero");
             ActualizarEstado(+10, 0, +2, -10, "Comida ligera");
         }
         public virtual void ComerCompleto()
         {
-            Animaciones.EsperarConPuntos("Comiendo completo");
             ActualizarEstado(+30, 0, +8, -50, "Comida completa");
         }
 
         // Aquí se avanza el día cada vez que se duerme un sueño completo
         public virtual void Dormir()
         {
-            Animaciones.EsperarConPuntos("Durmiendo");
             ActualizarEstado(0, -30, -10, 0, "Dormir");
             RelojInterno.AvanzarDia();
             EventosManager.VerificarEventoCada3Dias(this);
@@ -136,33 +133,28 @@ namespace tamagochi.Clases
 
         public virtual void DormirSiesta()
         {
-            Animaciones.EsperarConPuntos("Tomando siesta");
             ActualizarEstado(0, -20, -5, 0, "Siesta");
         }
         public virtual void Estudiar()
         {
-            Animaciones.EsperarConPuntos("Estudiando");
             ActualizarEstado(+10, +10, +20, -50, "Estudiar", +10);
         }
         public virtual void EstudiarEnGrupo()
         {
-            Animaciones.EsperarConPuntos("Estudiando en grupo");
+
             ActualizarEstado(+15, +5, +10, -30, "Estudio grupal", +5);
         }
         public virtual void Trabajar()
         {
-            Animaciones.EsperarConPuntos("Trabajando");
             ActualizarEstado(+5, +5, +5, -200, "Trabajar");
         }
         public virtual void Socializar()
         {
-            Animaciones.EsperarConPuntos("Socializando");
             ActualizarEstado(-5, +5, -15, 0, "Socializar");
         }
 
         public virtual void TrabajoEspecial()
         {
-            Animaciones.EsperarConPuntos("Trabajando");
             ActualizarEstado(-5, +5, -15, 0, "Trabajo especial");
         }
 

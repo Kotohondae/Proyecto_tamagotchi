@@ -8,7 +8,7 @@ namespace tamagochi.Clases
         Console.WriteLine($"   ESTADO DEL UNIVERSITARIO {u.CaritaEstado}"); 
         Console.WriteLine("═════════════════════════════════════");
         ImprimirBarra("Hambre", u.Hambre);
-        ImprimirBarra("Sueno", u.Sueno);
+        ImprimirBarra("Sueño", u.Sueno);
         ImprimirBarra("Estres", u.Estres);
         ImprimirBarra("Estudio", u.NivelEstudio);
         Console.WriteLine($"Deuda: ${u.Deuda}"); 

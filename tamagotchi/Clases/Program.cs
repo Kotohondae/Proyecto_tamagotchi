@@ -30,13 +30,15 @@ namespace tamagochi.Clases
                         string tipoComida = Console.ReadLine() ?? "";
                         if (tipoComida == "1")
                         {
+                            uni.ProcesarAccion("Alimentación", uni.Retos.RetosAlimentacion);
                             uni.ComerLigero();
-                            uni.ProcesarAccion("Alimentación", uni.Retos.RetosAlimentacion);
+                            Animaciones.EsperarConPuntos("Comiendo ligero");
                         }
-                        else if (tipoComida == "2") 
+                        else if (tipoComida == "2")
                         {
-                            uni.ComerCompleto();
                             uni.ProcesarAccion("Alimentación", uni.Retos.RetosAlimentacion);
+                            uni.ComerCompleto();
+                            Animaciones.EsperarConPuntos("Comiendo completo");
                         }
                         else Console.WriteLine("Opción inválida.");
                         break;
@@ -46,15 +48,17 @@ namespace tamagochi.Clases
                         Console.WriteLine("2. Dormir completo");
                         Console.Write("Elige tipo de descanso: ");
                         string tipoSueño = Console.ReadLine() ?? "";
-                        if (tipoSueño == "1") 
+                        if (tipoSueño == "1")
                         {
-                            uni.DormirSiesta();
                             uni.ProcesarAccion("Dormir", uni.Retos.RetosDormir);
+                            uni.DormirSiesta();
+                            Animaciones.EsperarConPuntos("Tomando siesta");
                         }
                         else if (tipoSueño == "2")
                         {
-                            uni.Dormir();
                             uni.ProcesarAccion("Dormir", uni.Retos.RetosDormir);
+                            uni.Dormir();
+                            Animaciones.EsperarConPuntos("Durmiendo");
                         }
                         else Console.WriteLine("Opción inválida.");
                         break;
@@ -65,15 +69,17 @@ namespace tamagochi.Clases
                         Console.WriteLine("2. Estudiar en grupo (+10 estres, -$30, +sociabilidad)");
                         Console.Write("Elige tipo de estudio: ");
                         string tipoEstudio = Console.ReadLine() ?? "";
-                        if (tipoEstudio == "1") 
+                        if (tipoEstudio == "1")
                         {
+                            uni.ProcesarAccion("Estudiar", uni.Retos.RetosEstudio);
                             uni.Estudiar();
-                            uni.ProcesarAccion("Estudiar", uni.Retos.RetosEstudio);
+                            Animaciones.EsperarConPuntos("Estudiando");
                         }
-                        else if (tipoEstudio == "2") 
+                        else if (tipoEstudio == "2")
                         {
-                            uni.EstudiarEnGrupo();
                             uni.ProcesarAccion("Estudiar", uni.Retos.RetosEstudio);
+                            uni.EstudiarEnGrupo();
+                            Animaciones.EsperarConPuntos("Estudiando en grupo");
                         }
                         else Console.WriteLine("Opción inválida.");
                         break;
@@ -85,21 +91,24 @@ namespace tamagochi.Clases
                         string tipoTrabajo = Console.ReadLine() ?? "";
                         if (tipoTrabajo == "1")
                         {
+                            uni.ProcesarAccion("Trabajar", uni.Retos.RetosTrabajo);
                             uni.Trabajar();
-                            uni.ProcesarAccion("Trabajar", uni.Retos.RetosTrabajo);
+                            Animaciones.EsperarConPuntos("Trabajando");
                         }
-                        else if (tipoTrabajo == "2") 
+                        else if (tipoTrabajo == "2")
                         {
-                            uni.Trabajar();uni.TrabajoEspecial();
                             uni.ProcesarAccion("Trabajar", uni.Retos.RetosTrabajo);
+                            uni.TrabajoEspecial();
+                            Animaciones.EsperarConPuntos("Trabajando");
                         }
                         else Console.WriteLine("Opción inválida.");
                         break;
 
                     case "5":
                         {
-                            uni.Socializar();
                             uni.ManejarSocializacion();
+                            uni.Socializar();
+                            Animaciones.EsperarConPuntos("Socializando");
                         }
                         break;
                     case "6": MostrarHistorial(uni); break;
@@ -128,8 +137,8 @@ namespace tamagochi.Clases
                         salir = true;
                         MostrarResumenFinal(uni); break;
                 }
-
                 HUD.MostrarEstado(uni);
+                Thread.Sleep(1000);
                 Console.WriteLine();
             }
         }
