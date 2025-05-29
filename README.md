@@ -64,21 +64,4 @@ Cada carrera tiene sus propios retos y restricciones. Por ejemplo, los filósofo
 - El HUD muestra valores "positivos" (inverso de hambre, sueño, estrés).
 - El juego incluye un sistema básico de logros y registro de historial.
 
----
 
-## 📷 Capturas de pantalla
-
-_(Opcional: Puedes incluir imágenes del menú o estados del HUD si las tienes)_
-
----
-
-## ✍️ Autor
-
-**[Tu Nombre]**  
-Proyecto académico de simulación - Programación orientada a objetos
-
----
-
-## 🧭 Licencia
-
-Este proyecto es de uso académico. Puedes modificarlo y compartirlo con fines educativos.
